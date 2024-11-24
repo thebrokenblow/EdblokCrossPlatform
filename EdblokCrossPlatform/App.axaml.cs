@@ -8,6 +8,7 @@ namespace EdblokCrossPlatform;
 
 public partial class App : Application
 {
+    private MainWindow? _mainWindow;
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -17,12 +18,21 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new MainWindow
+            desktop.Exit += OnExit;
+            
+            _mainWindow = new MainWindow
             {
                 DataContext = new MainWindowViewModel(),
             };
+
+            desktop.MainWindow = _mainWindow;
         }
 
         base.OnFrameworkInitializationCompleted();
+    }
+
+    private void OnExit(object? sender, ControlledApplicationLifetimeExitEventArgs e)
+    {
+        ((MainWindowViewModel)_mainWindow.DataContext).CompleteStream();
     }
 }

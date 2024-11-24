@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "EdblockClient";
+ 
+package greet;
+
+message RequestSymbol{
+  double X = 1;
+  double Y = 2;
+}
+
+message ResponseSymbol{
+  double X = 1;
+  double Y = 2;
+}
+
+service EdblockEditor{
+  rpc DataStream (stream RequestSymbol) returns (stream ResponseSymbol);
+}

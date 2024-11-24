@@ -1,22 +1,25 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:EdblokCrossPlatform.ViewModels"
-        xmlns:figuresVm="using:EdblokCrossPlatform.ViewModels.Figures"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:figuresUi="clr-namespace:EdblokCrossPlatform.Views.FiguresUI"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="EdblokCrossPlatform.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="EdblokCrossPlatform">
+<Window
+    x:Class="EdblokCrossPlatform.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:figuresUi="clr-namespace:EdblokCrossPlatform.Views.FiguresUI"
+    xmlns:figuresVm="using:EdblokCrossPlatform.ViewModels.Figures"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:EdblokCrossPlatform.ViewModels"
+    Title="EdblokCrossPlatform"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Icon="/Assets/avalonia-logo.ico"
+    mc:Ignorable="d">
     <Design.DataContext>
-        <vm:MainWindowViewModel/>
+        <vm:MainWindowViewModel />
     </Design.DataContext>
     
-    <ItemsControl Items="{Binding Figures}"> 
+    <ItemsControl Items="{Binding Figures}">
         <ItemsControl.ItemsPanel>
             <ItemsPanelTemplate>
-                <Canvas  />
+                <Canvas Background="Transparent" PointerMoved="InputElement_OnPointerMoved" />
             </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.Styles>
@@ -27,10 +30,10 @@
         </ItemsControl.Styles>
         <ItemsControl.DataTemplates>
             <DataTemplate DataType="{x:Type figuresVm:Circle}">
-                <figuresUi:Circle/>
+                <figuresUi:Circle />
             </DataTemplate>
             <DataTemplate DataType="{x:Type figuresVm:Rectangle}">
-                <figuresUi:Rectangle/>
+                <figuresUi:Rectangle />
             </DataTemplate>
         </ItemsControl.DataTemplates>
     </ItemsControl>

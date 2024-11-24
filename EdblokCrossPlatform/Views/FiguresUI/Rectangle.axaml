@@ -1,17 +1,20 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:figuresVm="clr-namespace:EdblokCrossPlatform.ViewModels.Figures"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="EdblokCrossPlatform.Views.FiguresUI.Rectangle">
-    
+﻿<UserControl
+    x:Class="EdblokCrossPlatform.Views.FiguresUI.Rectangle"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:figuresVm="clr-namespace:EdblokCrossPlatform.ViewModels.Figures"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
     <Design.DataContext>
-        <figuresVm:Rectangle/>
+        <figuresVm:Rectangle />
     </Design.DataContext>
-    
+
     <Rectangle
         Width="{Binding Width}"
         Height="{Binding Height}"
-        Fill="{Binding Color}"/>
+        Fill="{Binding Color}" />
 </UserControl>
